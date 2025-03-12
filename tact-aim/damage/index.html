@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ダメージ計算機_TACT-AIMフィード</title>
+    <script>
+        function calculateDamage() {
+            let attackerAttackMultiplier = parseFloat(document.getElementById("attacker-attack").value);
+            let attackerBuff = parseFloat(document.getElementById("attacker-buff").value) / 100;
+            let defenderBuff = parseFloat(document.getElementById("defender-buff").value) / 100;
+            let weaponDamage = parseFloat(document.getElementById("weapon-damage").value);
+
+            let effectiveAttack = weaponDamage * (attackerAttackMultiplier + attackerBuff);
+            let damageReduction = (1 - defenderBuff);
+
+            let damage = Math.ceil(effectiveAttack * damageReduction);
+            if (damage < 0) damage = 0;
+
+            document.getElementById("result").innerText = "与えるダメージ: " + damage;
+        }
+    </script>
+</head>
+<body>
+    <h1>ダメージ計算機β</h1>
+    <div>
+        <h2>攻撃者のステータス</h2>
+
+        <label for="attacker-attack">キャラクター</label>
+        <select id="attacker-attack">  
+            <option value="1.0">Cat</option>
+            <option value="1.0">CatBot</option>
+            <option value="1.0">GoldenCat</option>
+            <option value="0.95">Gobo</option>
+            <option value="0.9">SpikyGobo</option>
+            <option value="0.9">LavaGobo</option>
+            <option value="1.0">Tera</option>
+            <option value="1.05">BioTera</option>
+            <option value="0.9">SacredTera</option>
+            <option value="1.0">Giga</option>
+            <option value="0.85">NinjaGiga</option>
+            <option value="0.9">LightningGiga</option>
+            <option value="1.1">Nano</option>
+            <option value="1.2">DarkNano</option>
+            <option value="1.0">CombatNano</option>
+            <option value="1.0">Pico</option>
+            <option value="1.0">ShieldPico</option>
+            <option value="1.0">CyborgPico</option>
+            <option value="1.0">MilitaryPico</option>
+        </select><br>
+
+      <label for="attacker-buff">バフ (%):</label>
+        <select id="attacker-buff">
+            <option value="0">0</option>
+            <option value="10">10%</option>
+            <option value="20">20%</option>
+        </select><br>
+      
+        <label for="weapon-damage">武器:</label>
+        <select id="weapon-damage">
+            <option value="20">Pistol</option>
+            <option value="30">30</option>
+            <option value="40">40</option>
+        </select><br>
+    </div>
+
+  <div>
+        <h2>防御者のステータス</h2>
+        <label for="defender-buff">バフ (%):</label>
+        <select id="defender-buff">
+            <option value="0">0</option>
+            <option value="10">10%</option>
+            <option value="20">20%</option>
+        </select><br>
+    </div>
+    <button onclick="calculateDamage()">計算する</button>
+    <h2 id="result">与えるダメージ: </h2>
+</body>
+</html>

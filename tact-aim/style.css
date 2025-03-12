@@ -1,0 +1,88 @@
+*{
+    margin:0px;padding:0px;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+h1{
+  color:black;
+  font-size:60px;
+}
+
+h2{
+  font-size:30px;
+}
+h3{
+  text-align:right;
+  margin:30px;
+}
+p{
+  font-size:20px;
+}
+.blank{
+  height:30px;
+}
+.notification{
+  background-color:#d5f1f3;
+}
+.tab{
+  color:#ffffff;
+  text-decoration:none;
+  background-color:#42b9f5;
+}
+.textclear{
+  clear:both;
+}
+.title{
+  height: 80px;
+    width: 100%;
+    background-color:#d5f1f3;
+    position: fixed;
+    z-index: 2;
+}
+.pop{
+  height: 150px;
+    width: 60%;
+    background-color:#d5f1f3;
+    position: fixed;
+    z-index: 2;
+}
+
+.titlecharacter{
+  font-size: 40px;
+  position: absolute;
+  left: 100px;
+}
+.icon{
+    top: 10px;
+    left: 10px;
+    width: 60px;
+    height: 60px;
+    transition:0.1s;
+    position: absolute;
+}
+.left/*要素を左に回らせる*/{
+  float:left;
+}
+.clearleft{
+  clear:both
+}
+.scroll-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 100px; /* 画像の高さに合わせて調整 */
+}
+
+.scrolling-wrapper {
+    animation: scroll 10s linear infinite;
+}
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-25%);
+    }
+}
+.center{
+  text-align:center;
+}
