@@ -27,3 +27,9 @@
     text-decoration:none;
     background-color:#42b9f5;
   }
+  .left/*要素を左に回らせる*/{
+    float:left;
+  }
+  .clearleft{
+    clear:both
+  }
